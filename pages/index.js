@@ -27,6 +27,9 @@ const Home = () => {
           criar a realidade que queremos através da tecnologia.
         </p>
         {/* button */}
+        <div className="flex justify-center xl:hidden relative">
+          <ProjectsBtn />
+        </div>
       </div>
     </div>
     {/* image */}
