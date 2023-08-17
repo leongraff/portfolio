@@ -53,10 +53,19 @@ const Home = () => {
           w-full absolute mix-blend-color-dodge translate-z-0">
           </div>
           {/* particles */}
+          <ParticlesContainer />
           {/* avatar img */}
+          <motion.div className='w-full h-full max-w-[537px] max-h-[478px] absolute -bottom-32 lg:bottom-0 lg:right-[8%]'
+            variants={fadeIn('up', 0.5)}
+            initial='hidden'
+            animate='show'
+            exit='hidden'
+            transition={{ duration: 1, ease: 'easeInOut' }}>
+            <Avatar />
+          </motion.div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
