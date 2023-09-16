@@ -88,7 +88,7 @@ const ParticlesContainer = () => {
             value: { min: 1, max: 5 }
           },
         },
-        detectRetine: true
+        detectRetina: true,
       }}
     />
   );
