@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '../styles/custom.css';
 
 // importando componentesss
 import Layout from '../components/Layout';

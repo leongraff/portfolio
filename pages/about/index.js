@@ -1,9 +1,7 @@
 //import icons
 import React, { useState } from 'react'
-import { FaHtml5, FaCss3, FaJs, FaReact } from 'react-icons';
-import { SiNextdotjs, SiFramer } from 'react-icons/si';
-import { FaWordpress } from 'react-icons/fa';
-import { FaFigma, SiAdobexd, SiAdobephotoshop } from 'react-icons'
+import { FaHtml5, FaCss3, FaJs, FaReact, FaAccessibleIcon, FaWordpress, FaFigma } from 'react-icons/fa';
+import { SiNextdotjs, SiFramer, SiAdobexd, SiAdobephotoshop } from 'react-icons/si';
 
 
 
@@ -26,7 +24,8 @@ const aboutData = [
       },
       {
         title: 'UI/UX Design',
-        icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
+        icons: [<SiAdobexd />, <SiAdobephotoshop />, <FaFigma />],
+
       },
     ],
   },
@@ -83,15 +82,68 @@ const aboutData = [
 
 import Avatar from '../../components/Avatar'
 import Circles from '../../components/Circles'
-
+import { motion } from 'framer-motion'
+import { fadeIn } from '../../variants'
 
 
 const About = () => {
   const [index, setIndex] = useState(0);
-  return <div>
-    <Circles />
-  </div>;
-};
+  return (
+    <div className='h-full bg-primary/30 py-32 text-center xl:text-left'>
+      <Circles />
+      <motion.div variants={fadeIn('right', 0.2)} initial='hidden' animate='show' exit='hidden' className='hidden xl:flex absolute bottom-0 -left-[370px]'>
+        <Avatar />
+      </motion.div>
+      <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
+        <div className='flex-1 flex flex-col justify-center'>text</div>
+        <div className='flex flex-col w-full xl:max-w-[58%] h-[280px]'>
+          <div className='flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4'>
+            {aboutData.map((item, itemIndex) => {
+              return (
+                <div
+                  key={itemIndex}
+                  className={`${index === itemIndex &&
+                    'text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300 hover:text-red-700'
+                    }  cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] hover:text-red-700 after:bg-white after:absolute after:-bottom-1 after:left-0`}
+                  onClick={() => setIndex(itemIndex)}
+                >
 
+                  {item.title}
+
+                </div>
+
+              )
+            })}
+          </div>
+          <div className='py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center
+          xl:items-start'>
+            {aboutData[index].info.map((item, itemIndex) => {
+              return (
+
+                <div key={itemIndex}>
+                  <div>
+                    {item.title}
+                  </div>
+                  <div className='hidden md:flex'>
+                    -
+                  </div>
+                  <div>
+                    {item.stage}
+                  </div>
+                  <div className='flex flex-row flex-gap-x-4'>
+                    {item.icons?.map((icon, itemIndex) => {
+                      return <div key={itemIndex} className='flex flex-col'>{icon}</div>
+                    })}
+                  </div>
+                </div>
+
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+};
 
 export default About;
