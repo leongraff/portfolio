@@ -1,3 +1,7 @@
+//importando os icones
+import {RxRocket,RxCrop,RxDesktop,RxPencil2,RxReader} from 'react-icons';
+
+
 // data
 const serviceData = [
   {
