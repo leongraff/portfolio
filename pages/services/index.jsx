@@ -1,3 +1,5 @@
+//importando os icones
+import {RxRocket,RxCrop,RxDesktop,RxPencil2,RxReader} from 'react-icons/rx';
 
 //components
 import ServiceSlider from '../../components/ServiceSlider';
